@@ -6,10 +6,10 @@ class MyAnnotationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Anotações',
+      title: 'Anotar',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink).copyWith(background:
-        Colors.brown[300]), // mudando a cor do plano de fundo
+        Colors.brown[400]), // mudando a cor do plano de fundo
       ),
       home: const AnnotationsPage(title: 'Anotações'),
     );
@@ -30,10 +30,12 @@ class _AnnotationsPageState extends State<AnnotationsPage> {
   final TextEditingController _textController = TextEditingController();
 
   void _addNote() {
-    setState(() {
-      _notes.add(_textController.text);
-      _textController.clear();
-    });
+    if (_textController.text.isNotEmpty) { // verificação se o campo está vazio
+      setState(() {
+        _notes.add(_textController.text);
+        _textController.clear();
+      });
+    }
   }
 
   void _editNote(int index) {
@@ -58,7 +60,12 @@ class _AnnotationsPageState extends State<AnnotationsPage> {
             ElevatedButton(
               child: const Text('Salvar'),
               onPressed: () {
-                Navigator.of(context).pop();
+                String value = _notes[index];
+                setState(() {
+                  _notes[index] = value;
+                });
+                Navigator.of(context)
+                    .pop(); //fechar caixa de diálogo após salvar
               },
             ),
           ],
