@@ -1,5 +1,7 @@
+// Import
 import 'package:flutter/material.dart';
 
+// Início do Projeto
 class MyAnnotationApp extends StatelessWidget {
   const MyAnnotationApp({Key? key}) : super(key: key);
 
@@ -9,7 +11,7 @@ class MyAnnotationApp extends StatelessWidget {
       title: 'Anotar',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink).copyWith(background:
-        Colors.brown[400]), // mudando a cor do plano de fundo
+        Colors.brown[400]), // Mudando a cor do plano de fundo
       ),
       home: const AnnotationsPage(title: 'Anotações'),
     );
@@ -30,7 +32,7 @@ class _AnnotationsPageState extends State<AnnotationsPage> {
   final TextEditingController _textController = TextEditingController();
 
   void _addNote() {
-    if (_textController.text.isNotEmpty) { // verificação se o campo está vazio
+    if (_textController.text.isNotEmpty) { // Verificação se o campo está vazio
       setState(() {
         _notes.add(_textController.text);
         _textController.clear();
@@ -65,7 +67,7 @@ class _AnnotationsPageState extends State<AnnotationsPage> {
                   _notes[index] = value;
                 });
                 Navigator.of(context)
-                    .pop(); //fechar caixa de diálogo após salvar
+                    .pop(); // Fechar caixa de diálogo após salvar
               },
             ),
           ],
@@ -94,7 +96,7 @@ class _AnnotationsPageState extends State<AnnotationsPage> {
             onTap: () {
               _editNote(index);
             },
-            leading: const Icon(Icons.note), // adicionando ícone na lista de notas
+            leading: const Icon(Icons.note), // Adicionando ícone na lista de notas
           ),
         );
       },
@@ -104,7 +106,7 @@ class _AnnotationsPageState extends State<AnnotationsPage> {
   Widget _buildAddNote() {
     return Container(
       padding: const EdgeInsets.all(16.0),
-      color: Colors.white, // mudando a cor do container de adicionar nota
+      color: Colors.white, // Mudando a cor do container de adicionar nota
       child: Row(
         children: <Widget>[
           Expanded(
