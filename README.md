@@ -32,4 +32,4 @@ O projeto **PRJ-Flutter-Notes** é um aplicativo desenvolvido em Dart/Flutter qu
 
 ## 🚀 Executar
 
-Para executar o projeto, é necessário ter o Flutter instalado.
+Para executar o projeto, é necessário ter o Flutter instalado, o IntelliJ para executar o debug e gerar pacotes quando necessário.
